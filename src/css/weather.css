@@ -1,0 +1,94 @@
+.sub_section1 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.temp0 {
+    font-weight: 400;
+    transform: translateX(10px);
+}
+
+
+
+
+.forecast_btn {
+    border: none;
+    padding: 10px;
+    border-radius: 0.2rem;
+    background: #32486a;
+    color: white;
+    cursor: pointer;
+}
+
+.mainTemp {
+    display: flex;
+    width: 400px;
+    align-items: center;
+    margin: auto;
+}
+
+.mainTemp img {
+    display: inline;
+    width: 40px;
+    height: auto;
+    transform: translateY(5px);
+}
+
+.forecast_toggle_container {
+    opacity: 0;
+    visibility: hidden;
+    margin: 20px 0;
+    width: max-content;
+    padding: 13px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: .2rem;
+}
+
+
+.forecast_toggle_container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.toogle_item {
+    /* border-bottom: 1px solid; */
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.toogle_item_data {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.toogle_item_img {
+    width: 30px;
+    height: auto;
+    transform: translateY(3px);
+}
+
+.container_A div {
+    display: flex;
+    align-items: center;
+    color: rgb(192, 51, 51);
+}
+
+.container_A div .bar {
+    transform: translateY(-2px);
+    margin-right: 2px;
+}
+
+.container_A div span:nth-child(3){
+    transform: translateX(5px);
+}
+
+.container_A h2 {
+    margin: 0;
+}
