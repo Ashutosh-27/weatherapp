@@ -23,13 +23,17 @@ function Forex() {
     return (
         <div className='forex_container'>
             <table>
+                <thead>
                 <tr>
                     <th>Currency</th>
                     <th>Price</th>
                     <th>Change%</th>
                 </tr>
+                </thead>
+                <tbody>
                 <Sub_forex1 />
                 <Sub_forex2 />
+                </tbody>
             </table>
         </div>
     )

@@ -21,6 +21,7 @@ function Weather(props) {
 
     const weekDays = ["Sun", "Mon", "Thu", "Wed", "Thr", "Fri", "Sat"]
 
+    let arr1=[]
     let arr2 = []
 
     useEffect(() => {
@@ -49,16 +50,7 @@ function Weather(props) {
                         }
                     }
 
-                    // let dict = raw_arr[1]
-                    // let tp = raw_arr[1].main.temp
-                    // tp = tp - 273.15
-                    // tp = tp.toString().slice(0, 4);
-                    // //console.log(tp)
-                    // dict.main.temp = tp
-
-
-                    // setCurrentData(dict)
-                    //console.log(raw_arr)
+                    
 
 
                     for (let i = 1; i < raw_arr.length; i++) {
@@ -68,19 +60,10 @@ function Weather(props) {
                             continue
                         }
 
-                        let tp = raw_arr[i].main.temp
-                        tp = tp - 273.15
-                        tp = tp.toString().slice(0, 4);
-                        //console.log(tp)
-                        raw_arr[i].main.temp = tp
-
-                        let rx_dt = new Date(raw_arr[i].dt_txt)
-                        raw_arr[i].dt_txt = rx_dt
-
-
                         arr2.push(raw_arr[i + 4])
-                        //console.log(arr2)
+                        
                     }
+                    arr1.push(raw_arr[1])
 
                     for (let i = 0; i < arr2.length; i++) {
                         let tp = arr2[i].main.temp
@@ -94,12 +77,10 @@ function Weather(props) {
                         //console.log(arr2[i].dt_txt.getDay())
                     }
                     
-                    let tp = raw_arr[1].main.temp
+                    let tp = arr1[0].main.temp
                     tp = tp - 273.15
                     tp = tp.toString().slice(0, 4);
-                    //console.log(tp)
-                    raw_arr[1].main.temp = tp
-                    let arr1 = [raw_arr[1]]
+                    arr1[0].main.temp = tp
                     setCurrentData(arr1)
 
                     setForecastMainData(arr2)
