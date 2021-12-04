@@ -91,7 +91,7 @@ function Weather(props) {
             })
         }
 
-    }, [arr1,arr2,dt])
+    })
 
     
     return (
@@ -125,10 +125,9 @@ function Weather(props) {
                 </div>
                 <div>
                     <button className={'forecast_btn'} onClick={() => {
-                        {
+                        
                             !Show_toggel ? setShow_toggel(true) : setShow_toggel(false)
-                        }
-
+                        
                     }}>Next 3 Days Forecast</button>
                 </div>
                 <div className={`forecast_toggle_container${Show_toggel ? " active" : ""}`}>

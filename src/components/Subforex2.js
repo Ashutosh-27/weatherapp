@@ -30,7 +30,7 @@ function Subforex2(props) {
                                 for (const [key, value] of Object.entries(raw_data2)) {
                                     let c = key 
                                     c = 0
-                                    total_count2 += value.close;
+                                    total_count2 += value.close  + c;
                                 }
                                 let Avg_change2 = (total_count2 / length2) / 100
                                 Avg_change2 = Avg_change2.toString().slice(0, 4)

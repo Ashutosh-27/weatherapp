@@ -32,7 +32,7 @@ function Subforex1( ) {
                                 for (const [key, value] of Object.entries(raw_data1)) {
                                     let c = key 
                                     c = 0
-                                    total_count1 += value.close;
+                                    total_count1 += value.close + c;
                                 }
                                 let Avg_change1 = (total_count1 / length1) / 100
                                 Avg_change1 = Avg_change1.toString().slice(0, 4)
