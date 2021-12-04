@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import CurrencyCode from './currencycodes.json'
 
-function Sub_forex2(props) {
+function Subforex2(props) {
 
     const [Price, setPrice] = useState()
     const [Percent, setPercent] = useState()
@@ -17,7 +17,7 @@ function Sub_forex2(props) {
                 const url = `http://api.geonames.org/countryCodeJSON?lat=${latitude}&lng=${longitude}&username=ashutosh_9`
                 fetch(url).then(response => response.json()).then(response => {
                     CurrencyCode.map((e) => {
-                        if (e.country == response.countryName) {
+                        if (e.country === response.countryName) {
                             console.log(e.currency_code)
 
                             const url2 = `/historics/EUR-${e.currency_code}.json?key=demo`
@@ -28,6 +28,8 @@ function Sub_forex2(props) {
                                 let price2 = Object.values(raw_data2)[0].close
 
                                 for (const [key, value] of Object.entries(raw_data2)) {
+                                    let c = key 
+                                    c = 0
                                     total_count2 += value.close;
                                 }
                                 let Avg_change2 = (total_count2 / length2) / 100
@@ -40,6 +42,7 @@ function Sub_forex2(props) {
                             })
 
                         }
+                        return null;
                     })
                 })
             })
@@ -57,4 +60,4 @@ function Sub_forex2(props) {
     )
 }
 
-export default Sub_forex2
+export default Subforex2

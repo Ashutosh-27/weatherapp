@@ -1,24 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import CurrencyCode from './currencycodes.json'
-import Sub_forex1 from './Sub_forex1'
-import Sub_forex2 from './Sub_forex2'
+import Subforex1 from './Subforex1'
+import Subforex2 from './Subforex2'
 
 
 function Forex() {
-
-    // const [currenCode, setcurrenCode] = useState()
-
-    // useEffect(() => {
-    //     let latitude, longitude;
-
-
-    // }, [])
-
-
-
-
 
     return (
         <div className='forex_container'>
@@ -31,8 +16,8 @@ function Forex() {
                 </tr>
                 </thead>
                 <tbody>
-                <Sub_forex1 />
-                <Sub_forex2 />
+                <Subforex1 />
+                <Subforex2 />
                 </tbody>
             </table>
         </div>

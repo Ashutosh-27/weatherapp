@@ -91,7 +91,7 @@ function Weather(props) {
             })
         }
 
-    }, [])
+    }, [arr1,arr2,dt])
 
     
     return (
@@ -108,9 +108,9 @@ function Weather(props) {
                     <span >
                         {
                             dt.getHours() > 6 && dt.getHours() < 19 ?
-                                <img src='./images/dayclouds.png' />
+                                <img src='./images/dayclouds.png' alt='resources_img' />
                                 :
-                                <img src='./images/nightclouds.png' />
+                                <img src='./images/nightclouds.png' alt='resources_img' />
                         }
                     </span>
                     <span>
@@ -144,9 +144,9 @@ function Weather(props) {
                                         <span>
                                             {
                                                 e.dt_txt.getHours() > 6 && e.dt_txt.getHours() < 19 ?
-                                                    <img src='./images/dayclouds.png' className='toogle_item_img' />
+                                                    <img src='./images/dayclouds.png' className='toogle_item_img' alt='resources_img'/>
                                                     :
-                                                    <img src='./images/nightclouds.png' className='toogle_item_img' />
+                                                    <img src='./images/nightclouds.png' className='toogle_item_img' alt='resources_img' />
                                             }
                                         </span>
                                         <span>{e.main.temp}&#730;C</span>
