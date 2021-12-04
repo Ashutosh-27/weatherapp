@@ -85,7 +85,7 @@ function Weather(props) {
 
                     setForecastMainData(arr2)
                     
-                    console.log(raw_arr[1])
+                    // console.log(raw_arr[1])
                     //console.log(cityData)
                 })
             })
