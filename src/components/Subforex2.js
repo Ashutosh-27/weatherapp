@@ -27,13 +27,13 @@ function Subforex2(props) {
                         for (const [key, value] of Object.entries(CountryNames)) {
                             if(key === code){
                                 let CountryName = value
-                                console.log(CountryName)
+                                
 
                                 CurrencyCode.map((e) => {
                                     if (e.country === CountryName) {
-                                        console.log(e.currency_code)
+                                        
             
-                                        const url2 = `/historics/USD-${e.currency_code}.json?key=demo`
+                                        const url2 = `/historics/EUR-${e.currency_code}.json?key=demo`
                                         fetch(url2).then(response => response.json()).then(USDresponse => {
                                             let raw_data2 = USDresponse.historics
                                             //console.log(raw_data1)
