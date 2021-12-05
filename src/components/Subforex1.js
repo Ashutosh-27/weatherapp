@@ -20,7 +20,7 @@ function Subforex1( ) {
                     CurrencyCode.map((e) => {
                         if (e.country === response.countryName) {
                             //console.log(e.currency_code)
-
+                            // "proxy": "https://v2.api.forex",
                             const url1 = `/historics/USD-${e.currency_code}.json?key=demo`
                             fetch(url1).then(response => response.json()).then(USDresponse => {
                                 let raw_data1 = USDresponse.historics
