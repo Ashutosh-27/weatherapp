@@ -15,7 +15,7 @@ function LoadMap() {
 
     function Map() {
         return (
-            <GoogleMap defaultZoom={5} defaultCenter={{ lat: latitude, lng: longitude }} />
+            <GoogleMap defaultZoom={4.5} defaultCenter={{ lat: latitude, lng: longitude }} />
 
         );
     }
@@ -31,7 +31,7 @@ function LoadMap() {
 
     return (
         <div className="App_Map" >
-            <div style={{ width: '500px', height: '350px', margin: 'auto' }}>
+            <div className='map_container'>
                 <WrappedMap
                     googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${Map_Api_key}`}
                     loadingElement={<div style={{ height: `100%` }} />}

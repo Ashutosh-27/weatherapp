@@ -19,12 +19,12 @@ function Subforex1( ) {
                 fetch(url).then(response => response.json()).then(response => {
                     CurrencyCode.map((e) => {
                         if (e.country === response.countryName) {
-                            console.log(e.currency_code)
+                            //console.log(e.currency_code)
 
                             const url1 = `/historics/USD-${e.currency_code}.json?key=demo`
                             fetch(url1).then(response => response.json()).then(USDresponse => {
                                 let raw_data1 = USDresponse.historics
-                                console.log(raw_data1)
+                                //console.log(raw_data1)
                                 let total_count1 = 0
                                 let length1 = Object.keys(raw_data1).length
                                 let price1 = Object.values(raw_data1)[0].close

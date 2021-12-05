@@ -21,77 +21,82 @@ function Weather(props) {
 
     const weekDays = ["Sun", "Mon", "Thu", "Wed", "Thr", "Fri", "Sat"]
 
-    let arr1=[]
-    let arr2 = []
+   
+
+    
 
     useEffect(() => {
-        let latitude, longitude;
+        const loadData = ()=>{
+            var dt_IN = new Date();
+            let arr1=[]
+            let arr2 = []
 
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                latitude = position.coords.latitude
-                longitude = position.coords.longitude
-
-                const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=045e6c7b533350a086f3492e23808a72`
-                fetch(url).then(response => response.json()).then(response => {
-                    ////console.log(response)
-                    let raw_arr = response.list
-                    let code = `${response.city.country}`
-                    setcityData(response.city)
-                    setcntryCode(CntryNames[code].toUpperCase())
-
-                    dt.setDate(dt.getDate() + 3);
-
-                    for (let i = 0; i < raw_arr.length; i++) {
-                        const date = new Date(raw_arr[i].dt_txt);
-                        if (date.getDate() > dt.getDate()) {
-                            raw_arr.splice(i, raw_arr.length)
-
+            let latitude, longitude;
+    
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    latitude = position.coords.latitude
+                    longitude = position.coords.longitude
+    
+                    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=11fe811468071916b9a881af04c49138`
+                    fetch(url).then(response => response.json()).then(response => {
+                        // console.log(response)
+                        let raw_arr = response.list
+                        let code = `${response.city.country}`
+                        setcityData(response.city)
+                        setcntryCode(CntryNames[code].toUpperCase())
+    
+                        dt_IN.setDate(dt_IN.getDate() + 3);
+    
+                        for (let i = 0; i < raw_arr.length; i++) {
+                            const date = new Date(raw_arr[i].dt_txt);
+                            if (date.getDate() > dt_IN.getDate()) {
+                                raw_arr.splice(i, raw_arr.length)
+    
+                            }
                         }
-                    }
-
-                    
-
-
-                    for (let i = 1; i < raw_arr.length; i++) {
-                        const date1 = new Date(raw_arr[i - 1].dt_txt);
-                        const date2 = new Date(raw_arr[i].dt_txt);
-                        if (date1.getDate() === date2.getDate()) {
-                            continue
-                        }
-
-                        arr2.push(raw_arr[i + 4])
+    
                         
-                    }
-                    arr1.push(raw_arr[1])
-
-                    for (let i = 0; i < arr2.length; i++) {
-                        let tp = arr2[i].main.temp
+    
+    
+                        for (let i = 1; i < raw_arr.length; i++) {
+                            const date1 = new Date(raw_arr[i - 1].dt_txt);
+                            const date2 = new Date(raw_arr[i].dt_txt);
+                            if (date1.getDate() === date2.getDate()) {
+                                continue
+                            }
+    
+                            arr2.push(raw_arr[i + 4])
+                            
+                        }
+                        arr1.push(raw_arr[1])
+    
+                        for (let i = 0; i < arr2.length; i++) {
+                            let tp = arr2[i].main.temp
+                            tp = tp - 273.15
+                            tp = tp.toString().slice(0, 4);
+                            //console.log(tp)
+                            arr2[i].main.temp = tp
+    
+                            let rx_dt = new Date(arr2[i].dt_txt)
+                            arr2[i].dt_txt = rx_dt
+                            //console.log(arr2[i].dt_txt.getDay())
+                        }
+                        
+                        let tp = arr1[0].main.temp
                         tp = tp - 273.15
                         tp = tp.toString().slice(0, 4);
-                        //console.log(tp)
-                        arr2[i].main.temp = tp
-
-                        let rx_dt = new Date(arr2[i].dt_txt)
-                        arr2[i].dt_txt = rx_dt
-                        //console.log(arr2[i].dt_txt.getDay())
-                    }
-                    
-                    let tp = arr1[0].main.temp
-                    tp = tp - 273.15
-                    tp = tp.toString().slice(0, 4);
-                    arr1[0].main.temp = tp
-                    setCurrentData(arr1)
-
-                    setForecastMainData(arr2)
-                    
-                    // console.log(raw_arr[1])
-                    //console.log(cityData)
+                        arr1[0].main.temp = tp
+                        setCurrentData(arr1)
+    
+                        setForecastMainData(arr2)
+                        
+                    })
                 })
-            })
+            }
         }
-
-    })
+        loadData()
+    },[])
 
     
     return (

@@ -18,7 +18,7 @@ function Subforex2(props) {
                 fetch(url).then(response => response.json()).then(response => {
                     CurrencyCode.map((e) => {
                         if (e.country === response.countryName) {
-                            console.log(e.currency_code)
+                            //console.log(e.currency_code)
 
                             const url2 = `/historics/EUR-${e.currency_code}.json?key=demo`
                             fetch(url2).then(response => response.json()).then(EURresponse => {

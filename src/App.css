@@ -5,11 +5,17 @@
   width: 960px;
   height: 500px;
   margin: 100px auto;
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 10px;
+  padding-left: 20px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
-
+.map_container {
+  width: 500px;
+  height: 350px;
+  margin: auto;
+}
 
 .App_Map {
   height: max-content;
@@ -67,4 +73,36 @@
 
 .Percent_Negve {
   color: #cf3636;
+}
+
+@media screen and (max-width:950px) {
+  .App {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    width: max-content;
+    height: auto;
+  }
+
+  .map_container {
+    width: 90vw;
+    height: 400px;
+  }
+
+  .Section_2 {
+    margin-bottom: 100px;
+  }
+
+  .Section_1 {
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+  }
+}
+
+
+@media screen and (max-width:400px) {
+
+  .forex_container {
+    width: 280px;
+  }
 }
