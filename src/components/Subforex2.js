@@ -33,7 +33,7 @@ function Subforex2(props) {
                                     if (e.country === CountryName) {
                                         
             
-                                        const url2 = `/historics/EUR-${e.currency_code}.json?key=demo`
+                                        const url2 = `https://v2.api.forex/historics/EUR-${e.currency_code}.json?key=demo`
                                         fetch(url2).then(response => response.json()).then(USDresponse => {
                                             let raw_data2 = USDresponse.historics
                                             //console.log(raw_data1)

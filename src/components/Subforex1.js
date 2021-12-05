@@ -27,15 +27,15 @@ function Subforex1( ) {
                         for (const [key, value] of Object.entries(CountryNames)) {
                             if(key === code){
                                 let CountryName = value
-                                console.log(CountryName)
+                        
 
                                 CurrencyCode.map((e) => {
                                     if (e.country === CountryName) {
-                                        console.log(e.currency_code)
+                                        
                                         
                                         // "proxy": "https://v2.api.forex",
                                         
-                                        const url1 = `/historics/USD-${e.currency_code}.json?key=demo`
+                                        const url1 = `https://v2.api.forex/historics/USD-${e.currency_code}.json?key=demo`
                                         
                                         fetch(url1).then(response => response.json()).then(USDresponse => {
                                             let raw_data1 = USDresponse.historics
