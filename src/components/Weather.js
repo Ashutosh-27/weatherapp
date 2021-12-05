@@ -120,9 +120,9 @@ function Weather(props) {
                     </span>
                     <span>
                         {
-                           CurrentData.map((e)=>{
+                           CurrentData.map((e,index)=>{
                                return(
-                                   <h2 className='temp0'>{e.main.temp}&#730;C</h2>
+                                   <h2 className='temp0' kry={index}>{e.main.temp}&#730;C</h2>
                                )
                            })                    
                         }
