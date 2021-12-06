@@ -3,7 +3,9 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import CntryNames from './contriesName.json'
 import '../css/weather.css'
+require('dotenv').config();
 
+const Weather_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
 function Weather(props) {
 
@@ -38,7 +40,7 @@ function Weather(props) {
                     latitude = position.coords.latitude
                     longitude = position.coords.longitude
     
-                    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=11fe811468071916b9a881af04c49138`
+                    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${Weather_API_KEY}`
                     fetch(url).then(response => response.json()).then(response => {
                         // console.log(response)
                         let raw_arr = response.list

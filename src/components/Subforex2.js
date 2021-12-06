@@ -3,6 +3,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import CurrencyCode from './currencycodes.json'
 import CountryNames from './contriesName.json'
+require('dotenv').config();
+
+const Weather_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
+
+
 
 function Subforex2(props) {
 
@@ -18,7 +23,7 @@ function Subforex2(props) {
                 longitude = position.coords.longitude
 
 
-                const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=11fe811468071916b9a881af04c49138`
+                const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${Weather_API_KEY}`
                 fetch(url).then(response => response.json()).then(response => {
 
                         let code = `${response.city.country}`
@@ -39,12 +44,12 @@ function Subforex2(props) {
                                             //console.log(raw_data1)
                                             let total_count2 = 0
                                             let length2 = Object.keys(raw_data2).length
-                                            let price2 = Object.values(raw_data2)[0].close
+                                            let price2 = Object.values(raw_data2)[0].high
             
                                             for (const [key, value] of Object.entries(raw_data2)) {
                                                 let c = key 
                                                 c = 0
-                                                total_count2 += value.close + c;
+                                                total_count2 += value.high + c;
                                             }
                                             let Avg_change2 = (total_count2 / length2) / 100
                                             Avg_change2 = Avg_change2.toString().slice(0, 4)
