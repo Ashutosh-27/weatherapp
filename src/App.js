@@ -4,8 +4,6 @@ import LoadMap from './components/LoadMap';
 import Weather from './components/Weather';
 import Forex from './components/Forex';
 
-import { useEffect } from 'react'
-import { useState } from 'react'
 
 function App() {
 

@@ -12,6 +12,7 @@ function Subforex1(props) {
 
     const [Price, setPrice] = useState()
     const [Percent, setPercent] = useState()
+    const [CountryCurrCode, setCountryCurrCode] = useState()
 
     useEffect(() => {
         let latitude, longitude;
@@ -37,7 +38,7 @@ function Subforex1(props) {
                                     if (e.country === CountryName) {
                                         
                                         
-                                        // "proxy": "https://v2.api.forex",
+                                        
                                         
                                         const url = `/historics/${props.fromCurr}-${e.currency_code}.json?key=demo`
                                         
@@ -61,6 +62,7 @@ function Subforex1(props) {
             
                                             setPercent(change)
                                             setPrice(price)
+                                            setCountryCurrCode(e.currency_code)
                                         })
                                     }
                                     return null;
@@ -84,9 +86,9 @@ function Subforex1(props) {
 
     return (
         <tr>
-            <td>USDINR</td>
+            <td>{props.fromCurr}{CountryCurrCode}</td>
             <td>{Price}</td>
-            <td className={`${Percent > 0 ? "Percent_Posve":"Percent_Negve"}`}>{Percent}%</td>
+            <td className={`${Percent > 0 ? "Percent_Posve":"Percent_Negve"}`}><span></span>{Percent}%</td>
         </tr>
     )
 }
