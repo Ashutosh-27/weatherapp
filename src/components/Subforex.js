@@ -8,7 +8,7 @@ require('dotenv').config();
 const Weather_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
 
-function Subforex1( ) {
+function Subforex1(props) {
 
     const [Price, setPrice] = useState()
     const [Percent, setPercent] = useState()
@@ -39,25 +39,28 @@ function Subforex1( ) {
                                         
                                         // "proxy": "https://v2.api.forex",
                                         
-                                        const url1 = `/historics/USD-${e.currency_code}.json?key=demo`
+                                        const url = `/historics/${props.fromCurr}-${e.currency_code}.json?key=demo`
                                         
-                                        fetch(url1).then(response => response.json()).then(USDresponse => {
-                                            let raw_data1 = USDresponse.historics
-                                            //console.log(raw_data1)
-                                            let total_count1 = 0
-                                            let length1 = Object.keys(raw_data1).length
-                                            let price1 = Object.values(raw_data1)[0].high
-            
-                                            for (const [key, value] of Object.entries(raw_data1)) {
+                                        fetch(url).then(response => response.json()).then(USDresponse => {
+                                            let raw_data = USDresponse.historics
+
+                                            let total_count = 0
+                                            let length = Object.values(raw_data).length
+                                            let price = Object.values(raw_data)[0].high
+                                            
+                                            
+                                            for (const [key, value] of Object.entries(raw_data)) {
                                                 let c = key 
                                                 c = 0
-                                                total_count1 += value.close + c;
+                                                total_count += value.close + c;
                                             }
-                                            let Avg_change1 = (total_count1 / length1) / 100
-                                            Avg_change1 = Avg_change1.toString().slice(0, 4)
+                                            let avg = total_count/length
+                                            console.log((price/avg))
+                                            let change = (price/total_count)
+                                            change = change.toString().slice(0, 4)
             
-                                            setPercent(Avg_change1)
-                                            setPrice(price1)
+                                            setPercent(change)
+                                            setPrice(price)
                                         })
                                     }
                                     return null;

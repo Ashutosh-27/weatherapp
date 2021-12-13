@@ -1,10 +1,11 @@
 import React from 'react'
-import Subforex1 from './Subforex1'
-import Subforex2 from './Subforex2'
+import Subforex from './Subforex.js'
+
 
 
 function Forex() {
 
+    let fromCurrs = ['USD','EUR']
     return (
         <div className='forex_container'>
             <table>
@@ -16,8 +17,15 @@ function Forex() {
                 </tr>
                 </thead>
                 <tbody>
-                <Subforex1 />
-                <Subforex2 />
+                    {
+                        fromCurrs.map((e)=>{
+                            return(
+                            <Subforex fromCurr={e}/>
+                            )
+                        })
+                    }
+               
+                
                 </tbody>
             </table>
         </div>

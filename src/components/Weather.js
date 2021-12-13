@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const Weather_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
-function Weather(props) {
+function Weather() {
 
     var dt = new Date();
 
@@ -41,6 +41,7 @@ function Weather(props) {
                     longitude = position.coords.longitude
     
                     const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${Weather_API_KEY}`
+
                     fetch(url).then(response => response.json()).then(response => {
                         // console.log(response)
                         let raw_arr = response.list
